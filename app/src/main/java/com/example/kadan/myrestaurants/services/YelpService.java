@@ -76,15 +76,6 @@ public class YelpService {
                     restaurants.add(restaurant);
                 }
 
-                //Testing
-                ArrayList<String> address = new ArrayList<>();
-                address.add("218");
-                ArrayList<String> categories = new ArrayList<>();
-                categories.add("Cat 1");
-
-                Restaurant restaurant = new Restaurant("Test", "999", "www.test.com", 6,
-                        "nnnn", address, 22.3, 11.2, categories);
-                restaurants.add(restaurant);
             }
         } catch (IOException e) {
             e.printStackTrace();

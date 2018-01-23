@@ -28,8 +28,6 @@ import okhttp3.Response;
 public class TryActivity extends AppCompatActivity {
     public static final String TAG = TryActivity.class.getSimpleName();
 
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
-
     @BindView(R.id.recyclerView)  RecyclerView mRecyclerView;
     private RestaurantListAdapter mAdapter;
 
@@ -44,8 +42,6 @@ public class TryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-
-        mLocationTextView.setText("Here are all the restaurants near: " + location);
 
         getRestaurants(location);
     }
