@@ -1,4 +1,4 @@
-package com.example.kadan.myrestaurants;
+package com.example.kadan.myrestaurants.models;
 
 import java.util.ArrayList;
 

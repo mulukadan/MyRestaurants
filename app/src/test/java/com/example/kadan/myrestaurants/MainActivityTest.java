@@ -5,6 +5,8 @@ package com.example.kadan.myrestaurants;
 import android.os.Build;
 import android.widget.TextView;
 
+import com.example.kadan.myrestaurants.ui.MainActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

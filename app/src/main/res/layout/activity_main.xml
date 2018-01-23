@@ -3,7 +3,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="com.example.kadan.myrestaurants.MainActivity"
+tools:context="com.example.kadan.myrestaurants.ui.MainActivity"
 android:background="#000000">
 
     <ImageView
@@ -34,7 +34,8 @@ android:background="#000000">
         android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter Zip Code"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:inputType="phone"/>
 
     <Button
         android:layout_width="match_parent"

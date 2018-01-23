@@ -1,16 +1,20 @@
-package com.example.kadan.myrestaurants;
+package com.example.kadan.myrestaurants.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+
+import com.example.kadan.myrestaurants.R;
+import com.example.kadan.myrestaurants.adapters.RestaurantListAdapter;
+import com.example.kadan.myrestaurants.models.Restaurant;
+import com.example.kadan.myrestaurants.services.YelpService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +29,10 @@ public class TryActivity extends AppCompatActivity {
     public static final String TAG = TryActivity.class.getSimpleName();
 
     @BindView(R.id.locationTextView) TextView mLocationTextView;
-    @BindView(R.id.listView) ListView mListView;
+
+    @BindView(R.id.recyclerView)  RecyclerView mRecyclerView;
+    private RestaurantListAdapter mAdapter;
+
 
     public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
 
@@ -61,24 +68,12 @@ public class TryActivity extends AppCompatActivity {
                     @Override
                     public void run() {
 
-                        String[] restaurantNames = new String[mRestaurants.size()];
-                        for (int i = 0; i < restaurantNames.length; i++) {
-                            restaurantNames[i] = mRestaurants.get(i).getName();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(TryActivity.this,
-                                android.R.layout.simple_list_item_1, restaurantNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Restaurant restaurant : mRestaurants) {
-                            Log.d(TAG, "Name: " + restaurant.getName());
-                            Log.d(TAG, "Phone: " + restaurant.getPhone());
-                            Log.d(TAG, "Website: " + restaurant.getWebsite());
-                            Log.d(TAG, "Image url: " + restaurant.getImageUrl());
-                            Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
-                            Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
-                            Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
-                        }
+                        mAdapter = new RestaurantListAdapter(getApplicationContext(), mRestaurants);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(TryActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }

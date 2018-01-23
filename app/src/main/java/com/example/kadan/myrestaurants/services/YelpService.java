@@ -1,11 +1,11 @@
-package com.example.kadan.myrestaurants;
-
-import android.app.VoiceInteractor;
-import android.util.Log;
+package com.example.kadan.myrestaurants.services;
 
 /**
  * Created by kadan on 1/18/18.
  */
+
+import com.example.kadan.myrestaurants.Constants;
+        import com.example.kadan.myrestaurants.models.Restaurant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,8 +20,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import static com.example.kadan.myrestaurants.TryActivity.TAG;
 
 public class YelpService {
     private  static OkHttpClient client = new OkHttpClient();
