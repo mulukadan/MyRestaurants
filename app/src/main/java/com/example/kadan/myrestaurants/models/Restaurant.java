@@ -1,11 +1,14 @@
 package com.example.kadan.myrestaurants.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
 /**
  * Created by kadan on 1/22/18.
  */
 
+@Parcel
 public class Restaurant {
     private String mName;
     private String mPhone;
@@ -16,6 +19,7 @@ public class Restaurant {
     private double mLatitude;
     private double mLongitude;
     private ArrayList<String> mCategories = new ArrayList<>();
+
 
     public Restaurant(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
